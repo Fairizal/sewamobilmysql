@@ -1,10 +1,23 @@
 {% extends 'contact/base.html' %}
 {% block content %}
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{% url 'carsindex' %}">Persewaan Mobil</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="{% url 'carsindex' %}">Home</a></li>
+      <li><a href="{% url 'carsindex' %}">Mobil</a></li>
+      <li><a href="{% url 'index' %}">Pelanggan</a></li>
+      <li><a href="{% url 'rentindex' %}">Sewa</a></li>
+    </ul>
+  </div>
+</nav>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-1 col-xs-1 col-sm-1"></div>
         <div class="col-md-10 col-xs-10 col-sm-10">
-            <h3 class="round3" style="text-align:center;">Contact</h3>
+            <h3 class="round3" style="text-align:center;">Pelanggan</h3>
         </div>
         <div class="col-md-1 col-xs-1 col-sm-1"></div>
     </div>
@@ -41,9 +54,9 @@
                             <td>{{ contact.address }}</td>
                             <td>{{ contact.description }}</td>
                             <td>
-                                <a href="{% url 'detail' contact.pk %}" class="btn btn-success">
+                                <!-- <a href="{% url 'detail' contact.pk %}" class="btn btn-success">
                                     <span class="glyphicon glyphicon-eye-open"></span>
-                                </a>
+                                </a> -->
                                 <a href="{% url 'edit' contact.pk %}" class="btn btn-warning">
                                     <span class="glyphicon glyphicon-pencil"></span>
                                 </a>

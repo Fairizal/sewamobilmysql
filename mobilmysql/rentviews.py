@@ -12,10 +12,11 @@ class IndexView(ListView):
     context_object_name = 'rent_list'
 
     def get_queryset(self):
-        # rent = Rent.objects.select_related('idCars').annotate(carsName=F('idCars__carsName')).values('id', 'carsName', 'rentDate', 'rentDateBack', 'statusRent')
+        # rent = Rent.objects.select_related('idCars').annotate(carsName=F('idCars__carsName')).values('id', 'carsName', 'rentDate', 'rentDateBack', 'statusRent').all()
+        rent = Rent.objects.all()
         # print(rent)
-        # return rent
-        return Rent.objects.all()
+        return rent
+        # return Rent.objects.all()
 
 class RentDetailView(DetailView):
     model = Rent
