@@ -1,0 +1,57 @@
+{% extends 'rent/base.html' %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-1 col-xs-1 col-sm-1"></div>
+        <div class="col-md-10 col-xs-10 col-sm-10">
+            <h3 class="round3" style="text-align:center;">Sewa</h3>
+        </div>
+        <div class="col-md-1 col-xs-1 col-sm-1"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <br />
+            <a href="{% url 'rentcreate' %}" class="btn btn-primary">
+                <span class="glyphicon glyphicon-plus"></span> Tambah
+            </a>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Tanggal Pinjam</th>
+                        <th>Tanggal Kembali</th>
+                        <th>Mobil</th>
+                        <th>Pelanggan</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for rent in rent_list %}
+                        <tr>
+                            <td>{{ rent.rentDate }}</td>
+                            <td>{{ rent.rentDateBack }}</td>
+                            <td>{{ rent.idCars_id }}</td>
+                            <td>{{ rent.idContacts_id }}</td>
+                            <td>
+                                <a href="{% url 'rentdetail' rent.pk %}" class="btn btn-success">
+                                    <span class="glyphicon glyphicon-eye-open"></span>
+                                </a>
+                                <a href="{% url 'rentedit' rent.pk %}" class="btn btn-warning">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                </a>
+                                <a href="{% url 'rentdelete' rent.pk %}" class="btn btn-danger">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </html>
+        </div>
+    </div>
+</div>
+{% endblock %}
